@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "concat-stream": "~1.4.5",
-    "tape": "~2.12.1"
+    "tape": "^4.1.0"
   },
   "scripts": {
     "test": "tape test/*.js"

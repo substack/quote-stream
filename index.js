@@ -66,7 +66,7 @@ module.exports = function () {
             }
             else if (c === multiByteSeparatorCode) {
                 var rawBuf = buf.slice(i, i + multiByteSeparatorLength);
-                var escapeBuf;
+                var escapeBuf = null;
                 if (rawBuf.equals(multiByteBuffers.lineSeparator)) {
                   escapeBuf = buffers.escapeLineSeparator;
                 } else if (rawBuf.equals(multiByteBuffers.paragraphSeparator)) {

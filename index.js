@@ -1,4 +1,5 @@
 var through = require('through2');
+var equals = require('buffer-equal')
 var buffers = {
     quote: Buffer('"'),
     escapeQuote: Buffer('\\"'),
@@ -67,9 +68,9 @@ module.exports = function () {
             else if (c === multiByteSeparatorCode) {
                 var rawBuf = buf.slice(i, i + multiByteSeparatorLength);
                 var escapeBuf = null;
-                if (rawBuf.equals(multiByteBuffers.lineSeparator)) {
+                if (equals(rawBuf, multiByteBuffers.lineSeparator)) {
                   escapeBuf = buffers.escapeLineSeparator;
-                } else if (rawBuf.equals(multiByteBuffers.paragraphSeparator)) {
+                } else if (equals(rawBuf, multiByteBuffers.paragraphSeparator)) {
                   escapeBuf = buffers.escapeParagraphSeparator;
                 }
                 if (escapeBuf) {

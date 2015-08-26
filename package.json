@@ -1,6 +1,6 @@
 {
   "name": "quote-stream",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "transform a stream into a quoted string",
   "main": "index.js",
   "bin": {

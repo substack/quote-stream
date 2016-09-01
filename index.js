@@ -1,21 +1,21 @@
 var through = require('through2');
 var equals = require('buffer-equal')
 var buffers = {
-    quote: Buffer('"'),
-    escapeQuote: Buffer('\\"'),
-    escapeEscape: Buffer('\\\\'),
-    escapeB: Buffer('\\b'),
-    escapeF: Buffer('\\f'),
-    escapeN: Buffer('\\n'),
-    escapeR: Buffer('\\r'),
-    escapeT: Buffer('\\t'),
-    escapeLineSeparator: Buffer('\\u2028'),
-    escapeParagraphSeparator: Buffer('\\u2029')
+    quote: new Buffer('"'),
+    escapeQuote: new Buffer('\\"'),
+    escapeEscape: new Buffer('\\\\'),
+    escapeB: new Buffer('\\b'),
+    escapeF: new Buffer('\\f'),
+    escapeN: new Buffer('\\n'),
+    escapeR: new Buffer('\\r'),
+    escapeT: new Buffer('\\t'),
+    escapeLineSeparator: new Buffer('\\u2028'),
+    escapeParagraphSeparator: new Buffer('\\u2029')
 };
 
 for (var i = 0; i < 32; i++) {
     var s = i.toString(16);
-    buffers[i] = Buffer('\\u' + Array(5-s.length).join('0') + s);
+    buffers[i] = new Buffer('\\u' + Array(5-s.length).join('0') + s);
 }
 
 var codes = {
@@ -29,8 +29,8 @@ var codes = {
 };
 
 var multiByteBuffers = {
-    lineSeparator: Buffer('\u2028', 'utf8'),
-    paragraphSeparator: Buffer('\u2029', 'utf8')
+    lineSeparator: new Buffer('\u2028', 'utf8'),
+    paragraphSeparator: new Buffer('\u2029', 'utf8')
 };
 var multiByteSeparatorLength = multiByteBuffers.lineSeparator.length; // same for both
 var multiByteSeparatorOffset = multiByteSeparatorLength - 1;
